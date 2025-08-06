@@ -23,10 +23,10 @@ const COMPANIES_URLS = [
     extractor: extractFromModr
   },
   {
-    name: "modr.pl",
+    name: "agrofakt.pl",
     url: "https://www.agrofakt.pl/notowania/29-pszenica-konsumpcyjna/?okres=month",
     contentSelector: ".notowania-page",
-    location: "full",
+    location: "ogólnopolski",
     extractor: extractFromAgrofakt
   }
 
