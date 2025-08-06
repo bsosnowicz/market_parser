@@ -1,0 +1,11 @@
+<% content_for :title, "New market price" %>
+
+<h1>New market price</h1>
+
+<%= render "form", market_price: @market_price %>
+
+<br>
+
+<div>
+  <%= link_to "Back to market prices", market_prices_path %>
+</div>

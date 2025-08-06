@@ -1,0 +1,61 @@
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+
+paths:
+  /market_prices:
+    get:
+      summary: List market prices
+      parameters:
+        - in: query
+          name: product_name
+          schema:
+            type: string
+          required: false
+          description: Nazwa produktu do przefiltrowania (np. pszenica)
+        - in: query
+          name: location
+          schema:
+            type: string
+          required: false
+          description: Nazwa lokalizacji do przefiltrowania (województwo)
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        product_name:
+                          type: string
+                        location:
+                          type: string
+                        city:
+                          type: string
+                        price:
+                          type: number
+                        unit:
+                          type: string
+                          nullable: true
+                        date:
+                          type: string
+                          format: date
+                      required:
+                        - id
+                        - product_name
+                        - location
+                        - city
+                        - price
+                        - date
+
+servers:
+  - url: http://localhost:3000/
